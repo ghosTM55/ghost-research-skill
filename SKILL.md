@@ -8,7 +8,7 @@ platforms: [macos, linux]
 metadata:
   hermes:
     tags: [research, deep-research, obsidian, market-analysis, hv-analysis]
-    related_skills: [duckduckgo-search, arxiv, obsidian]
+    related_skills: [duckduckgo-search, arxiv, obsidian, wiki-research]
 ---
 
 # ghost-research：横纵分析法深度研究
@@ -33,6 +33,18 @@ metadata:
 - 只需要一句话结论或快速事实查询
 - 新闻简报、纯摘要、纯写作润色
 - 用户明确要求不要联网，或不要写成长报告
+
+---
+
+## 与 wiki-research 配合
+
+当研究对象适合查 wiki 类信息源时，`wiki-research` 可以作为后台补充：
+
+- 补充 Wikipedia / Wikidata / 官方或项目 Wiki / Fandom / 社区 Wiki 来源；
+- 提供别名、实体关系、作品/角色/组织关系、时间线、lore/canon 和社区分类线索；
+- 标注官方来源、百科来源、社区维护内容和仍需验证的信息。
+
+`ghost-research` 仍然负责完整横纵分析、证据评估、洞察判断和 KBS/Obsidian Markdown 输出。
 
 ---
 
@@ -64,6 +76,7 @@ metadata:
 每个子 Agent 的 prompt 中应包含以下联网指引：
 
 > 你需要联网获取信息，使用当前环境可用的搜索、网页读取、浏览器或终端检索工具。普通公开网页优先使用轻量搜索；动态、登录、交互页面再使用浏览器工具。多次搜索、多个关键词组合，不要只搜一次就放弃。一手来源优于二手来源：官方博客 > 权威媒体原创报道 > 转载/聚合。如果研究对象涉及学术概念、算法、AI 模型或技术范式，应检索 arXiv / 论文来源。优先使用可用的 arxiv skill 或官方 arXiv API；关键词需要正确 URL encode，不要直接把中文关键词硬塞进 URL。
+> 如果研究对象涉及百科背景、人物/组织/作品关系、IP/lore/canon、项目 Wiki、Fandom/社区 Wiki 或 Wikidata 实体关系，可让 `wiki-research` 在后台补充相关 wiki 类信息源、别名、时间线和关系线索；不要把 wiki 来源当作当前商业、价格、政策或市场结论的主要依据。
 
 ### 信息来源优先级
 

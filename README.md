@@ -1,6 +1,6 @@
-# ghost-research
+# Ghost Research Skill
 
-基于横纵分析法（Horizontal-Vertical Analysis）的个人深度研究 Skill。它不是原版 `hv-analysis` 的简单复制，而是根据我自己的研究工作流做过适配：输出面向 Obsidian / KBS，强调可沉淀、可追踪、可复用的 Markdown 研究报告。
+基于横纵分析法（Horizontal-Vertical Analysis）的个人深度研究 Skill。仓库命名采用 `ghost-research-skill`，安装后的 Skill 名仍为 `ghost-research`。它不是原版 `hv-analysis` 的简单复制，而是根据我自己的研究工作流做过适配：输出面向 Obsidian / KBS，强调可沉淀、可追踪、可复用的 Markdown 研究报告。
 
 ## 来源与致谢
 
@@ -86,10 +86,10 @@ hermes skills list | grep ghost-research
 /skill ghost-research
 ```
 
-如果本项目发布到了 GitHub，也可以使用 raw `SKILL.md` URL 安装：
+也可以直接从 GitHub raw `SKILL.md` URL 安装：
 
 ```bash
-hermes skills install "https://raw.githubusercontent.com/<owner>/<repo>/main/SKILL.md" --category research --name ghost-research
+hermes skills install "https://raw.githubusercontent.com/ghosTM55/ghost-research-skill/main/SKILL.md" --category research --name ghost-research
 ```
 
 ### 其他 Agent
@@ -111,6 +111,15 @@ hermes skills install "https://raw.githubusercontent.com/<owner>/<repo>/main/SKI
 ```text
 深度研究一下某家公司，并写入项目 KBS
 ```
+
+## 相关 Skill：wiki-research
+
+[`wiki-research`](https://github.com/ghosTM55/wiki-research-skill) 可以和 `ghost-research` 配合使用，但职责不同：
+
+- `wiki-research`：在普通搜索或研究中，自动补充 Wikipedia、Wikidata、官方/项目 Wiki、Fandom/社区 Wiki 等来源；适合处理背景、别名、实体关系、时间线、lore/canon 和社区知识结构。
+- `ghost-research`：负责完整深度研究，使用横纵分析法组织纵向历史、横向竞争格局、交叉洞察、证据矩阵和 KBS/Obsidian Markdown 输出。
+
+推荐配合方式：如果研究对象涉及 IP、人物、组织、项目、作品、技术概念或社区知识，agent 可以先让 `wiki-research` 在后台补充相关 wiki 类信息源和关系线索，再由 `ghost-research` 负责深度分析和最终报告。用户不需要为此写复杂 prompt；正常提出研究请求即可。
 
 ## 默认输出形态
 
