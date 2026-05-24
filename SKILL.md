@@ -3,7 +3,7 @@ name: ghost-research
 description: Use when the user asks for systematic research, competitive analysis, market/product/company/person/concept investigation, or 横纵分析. Produces source-grounded Obsidian Markdown research using longitudinal + cross-sectional analysis, with Mermaid only when visualization improves clarity.
 version: 1.0.0
 author: ghostm55
-license: MIT
+license: PolyForm-Noncommercial-1.0.0
 platforms: [macos, linux]
 metadata:
   hermes:
