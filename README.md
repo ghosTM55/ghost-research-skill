@@ -138,7 +138,7 @@ Mermaid 图表只在信息结构确实需要可视化时使用，不为了装饰
 
 ## License
 
-本项目的修改部分以 PolyForm Noncommercial License 1.0.0 授权，仅允许非商业用途使用。
+本项目的修改部分以 [PolyForm Noncommercial License 1.0.0](./LICENSE) 授权，仅允许非商业用途使用。
 
 未经作者另行书面许可，不得用于商业用途。
 
