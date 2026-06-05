@@ -1,6 +1,6 @@
 ---
 name: ghost-research
-description: Use when the user asks for systematic research, competitive analysis, market/product/company/person/concept investigation, or 横纵分析. Produces source-grounded Obsidian Markdown research using longitudinal + cross-sectional analysis, with Mermaid only when visualization improves clarity.
+description: Use when the user asks for systematic research, competitive analysis, market/product/company/person/concept investigation, or 横纵分析. Produces source-grounded Obsidian/KBS deep research using longitudinal + cross-sectional analysis, defaulting to Markdown as source text, Mermaid for structure, and inline HTML for polished report presentation blocks.
 version: 1.0.0
 author: ghostm55
 license: PolyForm-Noncommercial-1.0.0
@@ -308,9 +308,25 @@ flowchart LR
 
 ---
 
-## 第五步：输出为 Obsidian Markdown
+## 第五步：输出为 Obsidian / KBS Markdown
 
-报告写完后，整理为标准的 Obsidian Markdown 格式，并默认进入 KBS 写入流程。
+报告写完后，整理为标准的 Obsidian/KBS Markdown 格式，并默认进入 KBS 写入流程。
+
+### 默认呈现组合规则
+
+对「深度研究」「横纵分析」「竞品分析」「市场研究」这类正式 KBS 报告，默认采用组合形式：
+
+- **Markdown = 内容源**：正文、研究过程、引用、事实依据、完整分析、可搜索/可 diff 的长期知识。
+- **Mermaid = 结构源**：时间线、关系网络、竞争格局、流程、因果链、价值链、架构、决策树、未来剧本。
+- **Inline HTML = 展示层**：executive dashboard、核心判断卡、风险板、证据矩阵、profile、Q&A/report blocks、watchpoints、对比卡片。
+
+比例原则：
+
+1. 正式深度研究 / 市场报告 / 竞品分析 / 投资判断 / 行业研究：默认使用 Markdown + Mermaid + HTML。
+2. 临时资料整理 / 快速笔记 / 粗糙草稿：Markdown 为主，只在结构复杂时加 Mermaid，不强行加 HTML。
+3. 需要长期反复维护的知识条目：HTML 只用于成熟模块，避免后续编辑成本过高。
+4. 汇报型、阅读型、对比型报告：更积极使用 HTML dashboard、结论卡、风险板、证据矩阵。
+5. 不使用 Excalidraw 或其他插件专有绘图格式作为 KBS 主力图形方案。
 
 用户要求「深度研究」「调研」「研究一下」某个对象时，默认视为需要沉淀到个人 KBS 或项目 KBS；不要再追问「是否保存」。但实际执行文件写入前，必须遵守当前环境的文件修改审批、路径确认和覆盖保护规则。
 
@@ -348,7 +364,21 @@ related_notes:
 
 ### Obsidian 特有语法规范
 
-**执行摘要**（报告正文最开头，Frontmatter 之后）：
+**执行摘要 / Dashboard**（报告正文最开头，Frontmatter 之后）：
+
+正式深度研究默认优先使用 HTML dashboard；如果只是轻量笔记或需要最高可维护性，可退回 Obsidian callout。
+
+HTML dashboard 示例：
+
+```html
+<div style="font-family:'CaskaydiaMono Nerd Font','CaskaydiaMono Nerd Font Mono','PingFang SC','Songti SC',sans-serif; border:1px solid #2f3b52; border-radius:14px; padding:18px 20px; background:linear-gradient(135deg,#101827,#162235); color:#eef4ff; margin:18px 0;">
+  <div style="font-size:13px; letter-spacing:0.08em; color:#8fb3ff; text-transform:uppercase; margin-bottom:8px;">Executive dashboard</div>
+  <div style="font-size:24px; font-weight:700; margin-bottom:10px;">[一句话核心判断]</div>
+  <div style="font-size:15px; line-height:1.75; color:#d9e4ff;">[研究对象、验证日期、三个发现、反直觉点、战略含义的浓缩表达]</div>
+</div>
+```
+
+Callout fallback：
 
 ```markdown
 > [!info] 执行摘要
@@ -404,7 +434,11 @@ related_notes:
 [frontmatter]
 ---
 
-> [!info] 执行摘要
+<div style="...">
+  Executive dashboard / 核心判断 / 关键发现
+</div>
+
+> [!info] 执行摘要（轻量 fallback）
 > ...
 
 ## 一、一句话定义
@@ -522,8 +556,10 @@ quadrantChart / pie / graph
 - [ ] 未来推演的三个剧本都有逻辑支撑？
 - [ ] 是否主动写出反证、盲点和判断更新条件？
 - [ ] 是否给出行动建议、下一步验证和 watchpoints？
+- [ ] Markdown / Mermaid / HTML 的分工是否清楚：正文和证据留在 Markdown，结构关系交给 Mermaid，dashboard/结论卡/风险板/证据矩阵交给 HTML？
 - [ ] Mermaid 图表是因为信息本身需要可视化才加的，不是为了装饰？
 - [ ] 图表类型和数据匹配（时间线用 timeline，位置用 quadrant，占比用 pie）？
+- [ ] HTML 模块是否只用于成熟展示层，没有把整篇正文包进难维护的 HTML？
 - [ ] Frontmatter 填写完整，tags/aliases/related_notes 都有？
 - [ ] 执行摘要在报告最开头，200 字以内，含战略含义？
 - [ ] 证据矩阵与信息可靠性评估在报告末尾？

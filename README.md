@@ -20,7 +20,7 @@
 | 更适合完整公开报告 | 更适合个人知识库、项目知识库、长期研究沉淀 |
 | 固定报告生产流程 | 面向深度研究和 KBS 沉淀，默认生成可写入知识库的 Markdown 报告 |
 | 偏通用 Agent 工具描述 | 改为更适配 Hermes Agent，同时保留可迁移性 |
-| 图表规范较弱 | 增加 Mermaid 使用判断逻辑，但避免为了图而图 |
+| 图表规范较弱 | 增加 Markdown / Mermaid / HTML 组合呈现规则：Mermaid 只在结构需要时使用，HTML 用于成熟报告展示层 |
 | 默认生成最终报告 | 默认服务于个人 KBS / 项目 KBS 的研究沉淀 |
 
 ## 我的使用场景
@@ -33,7 +33,8 @@
 因此这个 Skill 默认关注：
 
 - Markdown / Obsidian 格式，而不是 PDF 排版；
-- frontmatter、tags、aliases、双链、callout；
+- Markdown 作为内容源，Mermaid 作为结构源，inline HTML 作为成熟报告展示层；
+- frontmatter、tags、aliases、双链、callout / dashboard；
 - 信息来源、置信度、延伸阅读；
 - 研究对象的纵向历史、横向竞争格局和交叉洞察；
 - 根据研究语境写入个人 KBS 或项目 KBS；路径不明确或存在覆盖风险时再确认。
@@ -67,6 +68,7 @@
 5. **文件写入规则**：如果你的 Agent 有自动写文件能力，建议明确个人知识库、项目知识库和覆盖已有文件时的处理方式。
 6. **语言风格**：是否需要更咨询报告、更学术、更口语，或更适合公开发布。
 7. **可视化规范**：Mermaid、表格、关系图是否适合你的阅读和发布环境。
+8. **HTML 展示层**：如果你的 Markdown 环境不支持 inline HTML，或 HTML 渲染/导出效果不好，请退回 callout + 表格 + Mermaid 的轻量模式。
 
 ## 安装 / 使用
 
@@ -123,10 +125,16 @@ hermes skills install "https://raw.githubusercontent.com/ghosTM55/ghost-research
 
 ## 默认输出形态
 
-默认输出为 Obsidian Markdown 报告，包含：
+默认输出为 Obsidian/KBS Markdown 报告。正式深度研究会默认采用三层组合：
+
+- **Markdown = 内容源**：正文、研究过程、引用、事实依据、完整分析、可搜索/可 diff 的长期知识。
+- **Mermaid = 结构源**：时间线、关系网络、竞争格局、流程、因果链、价值链、架构、决策树、未来剧本。
+- **Inline HTML = 展示层**：executive dashboard、核心判断卡、风险板、证据矩阵、profile、Q&A/report blocks、watchpoints、对比卡片。
+
+报告通常包含：
 
 - YAML frontmatter
-- 执行摘要 callout
+- 执行摘要 dashboard / callout fallback
 - 一句话定义
 - 纵向分析：从诞生到当下
 - 横向分析：竞争图谱
@@ -134,7 +142,9 @@ hermes skills install "https://raw.githubusercontent.com/ghosTM55/ghost-research
 - 信息可靠性评估
 - 延伸阅读
 
-Mermaid 图表只在信息结构确实需要可视化时使用，不为了装饰强行加图。
+比例原则：正式深度研究、市场报告、竞品分析、投资判断和行业研究默认使用 Markdown + Mermaid + HTML；临时资料整理或粗糙草稿以 Markdown 为主，只在结构复杂时加 Mermaid，不强行加 HTML。HTML 只用于成熟展示层，不把整篇正文包进难维护的 HTML。
+
+Mermaid 图表只在信息结构确实需要可视化时使用，不为了装饰强行加图。不使用 Excalidraw 或其他插件专有绘图格式作为 KBS 主力图形方案。
 
 ## License
 
