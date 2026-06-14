@@ -22,6 +22,8 @@
 | 偏通用 Agent 工具描述 | 改为更适配 Hermes Agent，同时保留可迁移性 |
 | 图表规范较弱 | 增加 Markdown / Mermaid / HTML 组合呈现规则：Mermaid 只在结构需要时使用，HTML 用于成熟报告展示层 |
 | 默认生成最终报告 | 默认服务于个人 KBS / 项目 KBS 的研究沉淀 |
+| 偏产品/公司研究 | 在不削弱原有横纵分析能力的前提下，抽象扩展到市场机会、市场进入、供需结构和已有研究稿复核 |
+| 容易像聊天问答 | 增加证据复核、边界修复、论证重构和专业报告化的写作约束 |
 
 ## 我的使用场景
 
@@ -37,6 +39,8 @@
 - frontmatter、tags、aliases、双链、callout / dashboard；
 - 信息来源、置信度、延伸阅读；
 - 研究对象的纵向历史、横向竞争格局和交叉洞察；
+- 市场、赛道、地区、品类、供需结构和进入机会的系统性判断；
+- 已有研究稿的证据复核、边界修复、论证重构和专业报告化；
 - 根据研究语境写入个人 KBS 或项目 KBS；路径不明确或存在覆盖风险时再确认。
 
 ## 适用场景
@@ -47,6 +51,8 @@
 - 技术概念 / AI 模型 / 行业范式
 - 人物 / 团队 / 创始人
 - 赛道 / 市场 / 竞品格局
+- 地区机会 / 市场进入 / 供需结构 / 渠道结构
+- 已有 KBS 研究稿的深度 review 与重构
 - 一个你想真正搞懂、并沉淀进知识库的对象
 
 不适合：
@@ -114,6 +120,10 @@ hermes skills install "https://raw.githubusercontent.com/ghosTM55/ghost-research
 深度研究一下某家公司，并写入项目 KBS
 ```
 
+```text
+看一下我刚写的市场机会分析，帮我重新核证数据、优化结构和措辞，让它像一份专业研究报告
+```
+
 ## 相关 Skill：wiki-research
 
 [`wiki-research`](https://github.com/ghosTM55/wiki-research-skill) 可以和 `ghost-research` 配合使用，但职责不同：
@@ -135,12 +145,15 @@ hermes skills install "https://raw.githubusercontent.com/ghosTM55/ghost-research
 
 - YAML frontmatter
 - 执行摘要 dashboard / callout fallback
-- 一句话定义
+- 一句话定义 / 执行判断
 - 纵向分析：从诞生到当下
-- 横向分析：竞争图谱
+- 横向分析：竞争图谱 / 市场结构 / 渠道结构
 - 横纵交汇洞察
-- 信息可靠性评估
+- 行动建议 / Watchpoints / 下一步验证
+- 信息可靠性评估 / 证据矩阵
 - 延伸阅读
+
+对于市场机会和市场进入类研究，默认先处理研究边界、数据底盘、结构拆解、主体地图、风险机制和行动验证；不会把单次任务中的具体产品、地区或客户名单固化为通用方法。
 
 比例原则：正式深度研究、市场报告、竞品分析、投资判断和行业研究默认使用 Markdown + Mermaid + HTML；临时资料整理或粗糙草稿以 Markdown 为主，只在结构复杂时加 Mermaid，不强行加 HTML。HTML 只用于成熟展示层，不把整篇正文包进难维护的 HTML。
 
